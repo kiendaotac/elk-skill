@@ -23,15 +23,17 @@ Cập nhật skill: `git pull`.
 
 Credential nằm ngoài repo, mỗi người dùng tài khoản của chính mình: `~/.config/elk-logs/env`.
 
-Skill có sẵn file mẫu `env.example` với giá trị placeholder:
+Skill có sẵn file mẫu `.env.example` với giá trị placeholder:
 
 ```bash
 mkdir -p ~/.config/elk-logs
-cp skills/elk-logs/env.example ~/.config/elk-logs/env
+cp skills/elk-logs/.env.example ~/.config/elk-logs/env
 chmod 600 ~/.config/elk-logs/env
 ```
 
 Sau đó mở file trong `~/.config/elk-logs/env` và thay placeholder bằng giá trị thật của bạn.
+
+Thứ tự tìm file cấu hình của script: biến `ELK_LOGS_CONF` → file `.env` nằm cạnh `elk-logs.sh` (đã được `.gitignore` chặn) → `~/.config/elk-logs/env`.
 
 ## Lưu ý
 

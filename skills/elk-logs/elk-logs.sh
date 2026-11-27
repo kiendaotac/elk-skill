@@ -3,7 +3,11 @@
 # Credentials: ~/.config/elk-logs/env (chmod 600), see SKILL.md.
 set -euo pipefail
 
-CONF="${ELK_LOGS_CONF:-$HOME/.config/elk-logs/env}"
+# Config precedence: $ELK_LOGS_CONF > ./.env next to this script (gitignored) > ~/.config/elk-logs/env
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+if [[ -n "${ELK_LOGS_CONF:-}" ]]; then CONF="$ELK_LOGS_CONF"
+elif [[ -f "$SCRIPT_DIR/.env" ]]; then CONF="$SCRIPT_DIR/.env"
+else CONF="$HOME/.config/elk-logs/env"; fi
 [[ -f "$CONF" ]] && source "$CONF"
 
 usage() {

@@ -44,7 +44,7 @@ Credential nằm ngoài repo, không bao giờ commit.
 
 ```bash
 mkdir -p ~/.config/elk-logs
-cp ~/work/appotapay-claude-skills/skills/elk-logs/env.example ~/.config/elk-logs/env
+cp ~/work/appotapay-claude-skills/skills/elk-logs/.env.example ~/.config/elk-logs/env
 chmod 600 ~/.config/elk-logs/env
 ```
 

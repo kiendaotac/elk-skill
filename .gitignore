@@ -2,3 +2,10 @@
 *.env
 .config/
 .DS_Store
+# real credential files (only .env.example is tracked)
+env
+**/env
+env.local
+*.local
+!.env.example
+!**/.env.example
